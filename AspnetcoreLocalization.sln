@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesExample", "RazorPagesExample\RazorPagesExample.csproj", "{9861857B-1473-4AE7-82C6-B83B83BCFD74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcExample", "MvcExample\MvcExample.csproj", "{9ED11F60-DEDD-45A7-8AE6-121B3ACF11E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9861857B-1473-4AE7-82C6-B83B83BCFD74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9861857B-1473-4AE7-82C6-B83B83BCFD74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9861857B-1473-4AE7-82C6-B83B83BCFD74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9861857B-1473-4AE7-82C6-B83B83BCFD74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ED11F60-DEDD-45A7-8AE6-121B3ACF11E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED11F60-DEDD-45A7-8AE6-121B3ACF11E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED11F60-DEDD-45A7-8AE6-121B3ACF11E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED11F60-DEDD-45A7-8AE6-121B3ACF11E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

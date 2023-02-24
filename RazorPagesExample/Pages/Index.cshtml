@@ -1,0 +1,41 @@
+﻿@page
+
+@using Microsoft.Extensions.Localization
+@using RazorPagesExample.Localization
+
+@model IndexModel
+
+@inject IStringLocalizer<IndexModel> L
+@inject ISharedViewLocalizer SharedLocalizer
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@L["Greeting"]</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="mt-2">
+    <h1 class="mb-3">Data Annotations Example</h1>
+    <form class="col-4">
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" type="email" class="form-control" aria-describedby="emailHelp">
+            <span asp-validation-for="Email" class="text-danger"></span>  
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1">
+            <span asp-validation-for="Password" class="text-danger"></span>  
+        </div>
+        <button type="submit" class="btn btn-primary">@SharedLocalizer["Save"]</button>
+    </form>
+</div>
+
+@section Scripts
+{
+    <partial name="Shared/_ValidationScriptsPartial"/>
+}

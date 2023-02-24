@@ -17,6 +17,12 @@ public class HomeController : Controller
     {
         return View();
     }
+    
+    [HttpPost]
+    public IActionResult Index(LoginModel model)
+    {
+        return View();
+    }
 
     public IActionResult Privacy()
     {

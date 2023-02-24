@@ -1,7 +1,47 @@
+using System.Globalization;
+using System.Reflection;
+using Microsoft.AspNetCore.Localization;
+using RazorPagesExample.Localization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization(options =>
+{
+    options.DataAnnotationLocalizerProvider = (type, factory) =>
+    {
+        var assemblyName = new AssemblyName(typeof(SharedResource).GetTypeInfo().Assembly.FullName);
+        return factory.Create("SharedResource", assemblyName.Name);
+    };
+});;
+
+// Configure localization
+builder.Services.AddLocalization(options =>
+{
+    options.ResourcesPath = "Resources";
+});
+
+const string defaultCulture = "en";
+
+var supportedCultures = new[]
+{
+    new CultureInfo(defaultCulture),
+    new CultureInfo("tr")
+};
+
+builder.Services.AddTransient<ISharedViewLocalizer, SharedViewLocalizer>();
+
+builder.Services.Configure<RequestLocalizationOptions>(options => {
+    options.DefaultRequestCulture = new RequestCulture(defaultCulture);
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+
+    // options.RequestCultureProviders = new List<IRequestCultureProvider>
+    // {
+    //     new MyCustomRequestCultureProvider()
+    // };
+    
+});
 
 var app = builder.Build();
 
@@ -17,6 +57,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseRequestLocalization();
 
 app.UseAuthorization();
 
